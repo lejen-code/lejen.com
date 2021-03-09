@@ -1,0 +1,13 @@
+{{ define "body-class" }}article-page keep-sidebar{{ end }}
+{{ define "main" }}
+    {{ partial "article/article.html" . }}
+
+    {{ if or (not (isset .Params "comments")) (eq .Params.comments "true")}} 
+        {{ partial "comments/include" . }}
+    {{ end }}
+
+    {{ partialCached "footer/footer" . }}
+
+    {{ partialCached "article/components/photoswipe" . }}
+    {{ replace .Content "<!--adsense-->" (partial "adsense-in-article.html" .) | safeHTML }}
+{{ end }}

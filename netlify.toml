@@ -1,0 +1,10 @@
+[build.environment]
+    HUGO_VERSION = "0.79.0"
+    HUGO_THEME = "hugo-theme-stack"
+
+[[plugins]]
+    package = "netlify-plugin-hugo-cache-resources"
+
+	[plugins.inputs]
+	# If it should show more verbose logs (optional, default = true)
+	debug = true
