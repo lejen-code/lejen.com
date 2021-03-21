@@ -1,7 +1,7 @@
 {{ define "body-class" }}article-page keep-sidebar{{ end }}
 {{ define "main" }}
-    {{ partial "article/article.html" . }}
-    {{ replace .Content "<!--adsense-->" (partial "adsense-in-article.html" .) | safeHTML }}
+    <!-- {{ partial "article/article.html" . }} -->
+    {{ replace (partial "article/article.html" .) "<!--adsense-->" (partial "adsense-in-article.html" .) | safeHTML }}
 
     {{ if or (not (isset .Params "comments")) (eq .Params.comments "true")}}
         {{ partial "comments/include" . }}
